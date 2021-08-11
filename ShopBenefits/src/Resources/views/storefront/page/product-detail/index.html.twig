@@ -1,0 +1,51 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+{% block page_product_detail_tabs %}  
+
+    {% block page_product_detail_benefits %}
+        <div class="product-detail-benefits">
+            <div class="container">
+                <div class="row">
+                    {% if context.salesChannel.customFields.shop_benefits_icon %}
+                        {% set iconId = context.salesChannel.customFields.shop_benefits_icon %}
+                        {% set mediaCollection = searchMedia([iconId], context.context) %}
+                        {% set icon = mediaCollection.get(iconId) %}
+                    {% endif %}
+
+                    <div class="col-auto">
+                        <span class="benefits-icon">
+                            <img src="{{icon.url}}"></img>
+                        </span>
+                    </div>
+                    <div class="col-auto"
+                        <span class="benefits-text">
+                            {{ context.salesChannel.translated.customFields.shop_benefits_1|raw }}
+                        </span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="benefits-icon">
+                            <img src="{{icon.url}}"></img>
+                        </span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="benefits-text">
+                            {{ context.salesChannel.translated.customFields.shop_benefits_2|raw }}
+                        </span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="benefits-icon">
+                            <img src="{{icon.url}}"></img>
+                        </span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="benefits-text">
+                            {{ context.salesChannel.translated.customFields.shop_benefits_3|raw }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {{ parent() }}
+{% endblock %}

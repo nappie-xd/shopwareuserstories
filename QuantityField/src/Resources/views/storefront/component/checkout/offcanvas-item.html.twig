@@ -1,0 +1,30 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-item.html.twig' %}
+
+{% block component_offcanvas_product_buy_quantity %}
+
+        <div class="product-detail-quantity-input input-group input-group-lg q-input" 
+            data-quantity-field="true"
+            data-quantity-field-options='{
+                "purchaseSteps" : "{{ lineItem.quantityInformation.purchaseSteps }}",
+                "maxQuantity": "{{ lineItem.quantityInformation.maxPurchase }}",
+                "unitPrice": "{{ lineItem.price.unitPrice }}",
+                "productId": "{{ lineItem.id }}" 
+            }'>
+            <div class="input-group-prepend minus">
+                <button class="btn btn-secondary decrease" type="button"> - </button>
+            </div>
+
+            <input name="quantity" type="number" class="quantity-input-{{ id }} js-offcanvas-cart-change-quantity"
+                name="lineItems[{{ lineItem.id }}][quantity]"
+                title="Quantity"
+                value="{{ lineItem.quantity }}"
+                max="{{ lineItem.quantityInformation.maxPurchase }}"
+                min="{{ lineItem.quantityInformation.minPurchase }}">
+
+            <div class="input-group-prepend plus">
+                <button class="btn btn-secondary increase" type="button"> + </button>
+            </div>
+
+        </div> 
+
+{% endblock %}

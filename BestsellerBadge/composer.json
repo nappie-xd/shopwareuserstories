@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "BestsellerBadge\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "BestsellerBadge\\BestsellerBadge",
+    "label": {
+      "de-DE": "Theme BestsellerBadge plugin",
+      "en-GB": "Theme BestsellerBadge plugin"
+    }
+  }
+}

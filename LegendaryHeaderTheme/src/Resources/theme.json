@@ -1,0 +1,92 @@
+{
+  "name": "LegendaryHeaderTheme",
+  "author": "Shopware AG",
+  "views": [
+     "@Storefront",
+     "@Plugins",
+     "@LegendaryHeaderTheme"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/legendary-header-theme.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ],
+  "config": {
+    "blocks": {
+      "header": {
+        "label": {
+          "en-GB": "Header",
+          "de-DE": "Kopfzeile"
+        }
+      },
+      "phone-number": {
+        "label": {
+          "en-GB": "Phone number",
+          "de-DE": "Telefonnummer"
+        }
+      }
+    },
+    "sections": {
+      "headerSection": {
+        "label": {
+          "en-GB": "",
+          "de-DE": ""
+        }
+      },
+      "phoneSection": {
+        "label": {
+          "en-GB": "",
+          "de-DE": ""
+        }
+      }
+    },
+    "fields": {
+      "icon-class-right-field": {
+        "label": {
+          "en-GB": "Icon class right",
+          "de-DE": "Icon-Klasse rechts"
+        },
+        "type": "text",
+        "value": "star",
+        
+        "editable": true,
+        "block": "header",
+        "section": "headerSection"
+      },
+      "text-right-field": {
+        "label": {
+          "en-GB": "Text right",
+          "de-DE": "Text rechts"
+        },
+        "type": "text",
+        "value": "Ausverkauf: Bis zu 30% reduziert!",
+        
+        "editable": true,
+        "block": "header",
+        "section": "headerSection",
+        "scss": false
+      },
+      "phone-number-field": {
+        "label": {
+          "en-GB": "Phone number",
+          "de-DE": "Telefonnummer"
+        },
+        "type": "text",
+        "value": "Tel.: +0123 456 789",
+
+        "editable": true,
+        "block": "phone-number",
+        "section": "phoneSection",
+        "scss": false
+      }
+    }    
+  }
+}

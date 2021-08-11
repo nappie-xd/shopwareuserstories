@@ -1,0 +1,73 @@
+$bordercolor: gold;
+
+.btn.btn-secondary.increase {
+    border-color: $bordercolor;
+    border-radius: 0px 50px 50px 0px;
+    border-left: transparent;
+    background-color: transparent; 
+    color: black; 
+}
+
+.btn.btn-secondary.decrease {
+    border-color: $bordercolor;
+    border-radius: 50px 0px 0px 50px; 
+    border-right: transparent;
+    background-color: transparent;
+    color: black; 
+}
+
+.quantity {
+    border-left: transparent;
+    border-right: transparent;
+    border-top: solid $bordercolor;
+    border-bottom: solid $bordercolor;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    appearance: textfield; //heard this is bad practice too
+    text-align: center;
+    display: inline-flex;
+}
+
+.input-group-prepend {
+    display: inline;
+    margin: 0;
+}
+
+.input-group.q-input {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+input.js-offcanvas-cart-change-quantity, input.quantity-input {
+    appearance: textfield;
+    width: 2.75rem;
+    text-align: center;
+    border-top: 1px solid $bordercolor;
+    border-bottom: 1px solid $bordercolor;
+    border-left: transparent;
+    border-right: transparent;
+}
+
+input.js-offcanvas-cart-change-quantity:focus, input.quantity-input:focus {
+    outline: none;
+}
+
+.offcanvas-cart .cart-quantity-price {
+    display: block ruby;
+}
+
+@include media-breakpoint-up(sm) {
+    .offcanvas-cart .cart-quantity-price {
+        display: block;
+        text-align: left;
+    }
+
+    .cart-item-quantity-container {
+        margin-left: 0;
+    }
+
+    .offcanvas-cart .cart-item-price {
+        text-align: left;
+        margin: 15px 0 0 20px;
+    }
+}

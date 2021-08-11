@@ -1,0 +1,33 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_main %}
+    {% if page.header.navigation.active.customFields.top_banner_media %}
+        {% set mediaId = page.header.navigation.active.customFields.top_banner_media %}
+        {% set mediaCollection = searchMedia([mediaId], context.context) %}
+        {% set media = mediaCollection.get(mediaId) %}
+    {% endif %}
+    {% if page.header.navigation.active.customFields.top_banner_height matches '/^\\d+$/' %}
+        {% set height = page.header.navigation.active.customFields.top_banner_height %}
+    {% else %}
+        {% set height = "100" %}
+    {% endif %}
+
+    {% block top_banner_main %}
+        <div class="container top-banner-container"
+            style="height: {{ height }}px">
+            <img src="{{ media.url }}">
+            <div class="top-banner-inner-text">
+                <h5>
+                    <span class="top-banner-title">
+                        {{ page.header.navigation.active.customFields.top_banner_title }}
+                    </span>
+                </h5>
+                <span class="top-banner-text">
+                    {{ page.header.navigation.active.customFields.top_banner_text }}
+                </span>
+            </div>
+        </div>
+    {% endblock %}
+
+    {{ parent() }}
+{% endblock %}

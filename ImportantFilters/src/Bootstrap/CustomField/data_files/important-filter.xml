@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<custom_field_sets>
+    <custom_field_set>
+        <name>custom_emz_important_filter</name>
+        <config>
+            <label>
+                <en-GB>Important filter</en-GB>
+                <de-DE>Wichtige Filter</de-DE>
+            </label>
+        </config>
+        <relations>
+            <relation>
+                <entityName>property_group</entityName>
+            </relation>
+        </relations>
+        <customFields>
+            <customField>
+                <name>custom_emz_important_filter_active</name>
+                <type>checkbox</type>
+                <config>
+                    <componentName>sw-field</componentName>
+                    <type>checkbox</type>
+                    <customFieldType>checkbox</customFieldType>
+                    <customFieldPosition>1</customFieldPosition>
+                    <label>
+                        <en-GB>Important filter</en-GB>
+                        <de-DE>Wichtiger Filter</de-DE>
+                    </label>
+                </config>
+            </customField>
+        </customFields>
+    </custom_field_set>
+</custom_field_sets>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<custom_field_sets>
+    <custom_field_set>
+        <name>custom_emz_direct_debit_mandate</name>
+        <config>
+            <label>
+                <en-GB>SEPA direct debit</en-GB>
+                <de-DE>SEPA-Lastschrift</de-DE>
+            </label>
+        </config>
+        <relations>
+            <relation>
+                <entityName>payment_method</entityName>
+            </relation>
+        </relations>
+        <customFields>
+            <customField>
+                <name>custom_emz_is_direct_debit_mandate_payment</name>
+                <type>bool</type>
+                <config>
+                    <componentName>sw-field</componentName>
+                    <type>checkbox</type>
+                    <customFieldType>checkbox</customFieldType>
+                    <customFieldPosition>1</customFieldPosition>
+                    <label>
+                        <en-GB>Is direct debit payment method</en-GB>
+                        <de-DE>Ist Lastschrift-Zahlungsart</de-DE>
+                    </label>
+                    <helpText>
+                        <en-GB>If this is checked, the direct debit form will be shown durin checkout.</en-GB>
+                        <de-DE>Ist dieses Feld ausgefüllt, wird im Checkout das Formular für das SEPA-Lastschrift-Mandat angezeigt.</de-DE>
+                    </helpText>
+                </config>
+            </customField>
+        </customFields>
+    </custom_field_set>
+</custom_field_sets>

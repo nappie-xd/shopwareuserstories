@@ -1,0 +1,29 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+
+{% block page_product_detail_buy_quantity %}
+
+    <div class="product-detail-quantity-input input-group input-group-lg q-select" 
+         data-quantity-field="true"
+         data-quantity-field-options='{
+             "purchaseSteps" : "{{ page.product.purchaseSteps }}",
+             "maxQuantity": "{{ page.product.calculatedMaxPurchase }}",
+             "unitPrice": "{{ page.product.calculatedPrice.unitPrice }}"
+         }'>
+        <div class="input-group-prepend">
+            <button class="btn btn-secondary decrease" type="button"> - </button>
+        </div>
+
+        <input type="number" class="form-control form-control-lg quantity"
+               name="lineItems[{{ page.product.id }}][quantity]"
+               title="Quantity"
+               value="{{ page.product.minPurchase }}"
+               max="{{ page.product.calculatedMaxPurchase }}"
+               min="{{ page.product.minPurchase }}">
+
+        <div class="input-group-prepend">
+            <button class="btn btn-secondary increase" type="button"> + </button>
+        </div>
+
+    </div> 
+
+{% endblock %}

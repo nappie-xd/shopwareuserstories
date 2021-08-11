@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+{% block layout_main_navigation_menu %}
+    {{ parent() }}
+
+    <div class="lgnd--banner-sale">
+        <span class="lgnd--banner-sale-border"></span>
+        <div class="lgnd--banner-sale-inner-wrapper">
+            {% set icon = theme_config('icon-class-right-field') %}
+            <span class="lgnd--banner-sale-icon">
+                {% sw_include "@Storefront/storefront/utilities/icon.html.twig" with {'name': icon} %}
+            </span>
+            <span class="lgnd--banner-sale-text">
+                {{ theme_config('text-right-field') }}
+            </span>
+        </div>
+    </div>
+{% endblock %}

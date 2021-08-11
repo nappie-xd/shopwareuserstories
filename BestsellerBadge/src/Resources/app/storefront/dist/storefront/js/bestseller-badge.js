@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["bestseller-badge"],{K6zs:function(e,n){}},[["K6zs","runtime"]]]);

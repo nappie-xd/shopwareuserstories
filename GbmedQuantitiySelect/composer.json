@@ -1,0 +1,43 @@
+{
+    "name": "gbmed/quantitiy-select",
+    "description": "show news bar",
+    "version": "1.1.0",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "gb media",
+            "homepage": "https://www.gb-media.biz",
+            "email": "shopware@gb-media.biz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Gbmed\\QuantitiySelect\\": "src/"
+        }
+    },
+    "require": {
+        "shopware/core": "6.4.*",
+        "shopware/storefront": "6.4.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "Gbmed\\QuantitiySelect\\GbmedQuantitiySelect",
+        "copyright": "gb media",
+        "label": {
+            "de-DE": "Mengenauswahl als Select2",
+            "en-GB": "Quantity selection as Select2"
+        },
+        "description": {
+            "de-DE": "Dieses Plugin vereinfacht die Auswahl der Bestellmenge für Ihre Kunden in den Artikeldetails und im Warenkorb durch ein Select2 Auswahlfeld.",
+            "en-GB": "This plugin simplifies the selection of the order quantity for your customers in the article details and in the shopping cart through a Select2 selection field."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://www.gb-media.biz",
+            "en-GB": "https://www.gb-media.biz"
+        },
+        "supportLink": {
+            "de-DE": "https://account.shopware.com/shops/support",
+            "en-GB": "https://account.shopware.com/shops/support"
+        }
+    }
+}

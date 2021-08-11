@@ -1,0 +1,23 @@
+.top-banner-container {
+    position: relative;
+    text-align: center;
+}
+
+.top-banner-container img {
+    height: inherit;
+    width: 100%;
+    filter: brightness(0.6);
+}
+
+.top-banner-inner-text {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.top-banner-inner-text h5 {
+    color: white;
+}

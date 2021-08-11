@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "QuantityField\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "QuantityField\\QuantityField",
+    "label": {
+      "de-DE": "Theme QuantityField plugin",
+      "en-GB": "Theme QuantityField plugin"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["ingredients-tab"],{"2fpi":function(n,i){}},[["2fpi","runtime"]]]);

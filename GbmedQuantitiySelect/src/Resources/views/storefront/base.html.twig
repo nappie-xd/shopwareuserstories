@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_body_script %}
+    {% block base_body_script_gbmed_quantitiy_select %}
+        <script>
+            window.GbmedQuantitiySelect = {
+                iconPlus: `{% sw_icon 'plus' %}`,
+                iconMinus: `{% sw_icon 'minus' %}`
+            };
+        </script>
+    {% endblock %}
+    {{ parent() }}
+    {{ dump() }}
+{% endblock %}

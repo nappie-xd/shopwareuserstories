@@ -1,0 +1,35 @@
+{% block layout_header_actions_service_widget %}
+    {% if position is empty %}
+        {% set position = 'top-bar' %}
+    {% endif %}
+
+    {% block layout_header_actions_service_widget_content %}
+        <div class="service-menu dropdown">
+            {% block layout_header_actions_service_widget_dropdown_toggle %}
+                <button class="btn dropdown-toggle top-bar-nav-btn"
+                        type="button"
+                        id="servicesDropdown-{{ position }}"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                            {% sw_icon 'help' %}
+                        <span class="top-bar-nav-text">Service/Hilfe</span>
+                </button>
+            {% endblock %}
+
+            {% block layout_header_actions_service_widget_form_items %}
+                <div class="top-bar-list dropdown-menu dropdown-menu-right">
+                    <div class="top-bar-list-item dropdown-item">
+                        Herren
+                    </div>
+                    <div class="top-bar-list-item dropdown-item">
+                        Damen
+                    </div>
+                    <div class="top-bar-list-item dropdown-item">
+                        Sales
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

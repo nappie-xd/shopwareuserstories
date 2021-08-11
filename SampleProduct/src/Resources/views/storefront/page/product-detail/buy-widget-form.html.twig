@@ -1,0 +1,73 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+
+{% block page_product_detail_buy_form_inner %}
+    {{ parent() }}
+    <div class="Sample-product-row" style="padding-top: 10px">
+        {% if page.extensions.emz_sample_product %}
+            {% set sample_product = page.extensions.emz_sample_product %}
+            <form
+            id="productDetailPageBuyProductForm"
+            action="{% block page_product_detail_buy_form_action %}{{ path('frontend.checkout.line-item.add') }}{% endblock %}"
+            method="post"
+            class="buy-widget"
+            data-add-to-cart="true">
+
+                {% block page_product_detail_buy_form_inner_csrf %}
+                    {{ sw_csrf('frontend.checkout.line-item.add') }}
+                {% endblock %}
+
+                <div class="form-row buy-widget-container">
+                    <div class="col-4">
+                        {{ sample_product.price.elements|first.net|currency}} {{ "general.star"|trans|sw_sanitize }}
+                    </div>
+
+                    <input type="hidden"
+                           name="sQuantity"
+                           value="1">
+
+                    {% block page_sample_product_detail_buy_redirect_input %}
+                        <input type="hidden"
+                               name="redirectTo"
+                               value="frontend.detail.page">
+
+                        <input type="hidden"
+                               name="redirectParameters"
+                               data-redirect-parameters="true"
+                               value='{"productId": "{{ sample_product.id }}"}'>
+                    {% endblock %}
+
+                    {% block page_sample_product_detail_buy_product_buy_info %}
+                        <input type="hidden"
+                               name="lineItems[{{ sample_product.id }}][id]"
+                               value="{{ sample_product.id }}">
+                        <input type="hidden"
+                               name="lineItems[{{ sample_product.id }}][type]"
+                               value="product">
+                        <input type="hidden"
+                               name="lineItems[{{ sample_product.id }}][referencedId]"
+                               value="{{ sample_product.id }}">
+                    {% endblock %}
+
+                    {% block page_sample_product_detail_product_buy_meta %}
+                        <input type="hidden"
+                               name="sAdd"
+                               value="{{ sample_product.number }}">
+                    {% endblock %}
+                
+                    {% block page_sample_product_detail_sample_button_container %}
+                        <div class="col-8">
+                            {% block page_product_detail_sample_button %}
+                                <button class="btn btn-primary btn-block btn-buy"
+                                        title="{{ "detail.addProduct"|trans|striptags }}"
+                                        aria-label="{{ "detail.addProduct"|trans|striptags }}">
+                                    Sample Order 
+                                </button>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

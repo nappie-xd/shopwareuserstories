@@ -1,0 +1,19 @@
+.btn.emz-show-all-filters-button {
+    border: 1px solid $sw-color-brand-primary;
+    font-weight: 400;
+}
+
+.emz-show-all-filters-label {
+    margin-bottom: 0;
+    vertical-align: top;
+    color: $sw-color-brand-primary;
+    cursor: pointer;
+}
+
+.emz-first-filter {
+    display: inherit;
+}
+
+.emz-second-filter {
+    display: none;
+}

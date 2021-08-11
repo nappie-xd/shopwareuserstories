@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<custom_field_sets>
+    <custom_field_set>
+        <name>custom_emz_sample_product</name>
+        <config>
+            <label>
+                <en-GB>Sample product</en-GB>
+                <de-DE>Proben-Artikel</de-DE>
+            </label>
+        </config>
+        <relations>
+            <relation>
+                <entityName>product</entityName>
+            </relation>
+        </relations>
+        <customFields>
+            <customField>
+                <name>custom_emz_sample_product_number</name>
+                <type>text</type>
+                <config>
+                    <componentName>sw-field</componentName>
+                    <type>text</type>
+                    <customFieldType>text</customFieldType>
+                    <customFieldPosition>1</customFieldPosition>
+                    <label>
+                        <en-GB>Product number of sample product</en-GB>
+                        <de-DE>Artikelnummer des Proben-Artikels</de-DE>
+                    </label>
+                    <helpText>
+                        <en-GB>e.g. P-09123879</en-GB>
+                        <de-DE>z.B. P-09123879</de-DE>
+                    </helpText>
+                </config>
+            </customField>
+        </customFields>
+    </custom_field_set>
+</custom_field_sets>

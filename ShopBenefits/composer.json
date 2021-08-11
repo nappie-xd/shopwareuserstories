@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ShopBenefits\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "ShopBenefits\\ShopBenefits",
+    "label": {
+      "de-DE": "Theme ShopBenefits plugin",
+      "en-GB": "Theme ShopBenefits plugin"
+    }
+  }
+}

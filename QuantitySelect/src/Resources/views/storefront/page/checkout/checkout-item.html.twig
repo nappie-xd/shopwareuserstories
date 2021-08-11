@@ -1,0 +1,104 @@
+{% sw_extends '@Storefront/storefront/page/checkout/checkout-item.html.twig' %}
+
+{% block page_checkout_item_quantity_select %}
+    <div class="col-4 col-sm-12">
+        <div class="cart-item-quantity">
+            <div class="checkout-item-quantity-input input-group input-group-sm q-input" 
+                data-quantity-select="true"
+                data-quantity-select-options='{
+                    "purchaseSteps" : "{{ lineItem.quantityInformation.purchaseSteps }}",
+                    "maxQuantity": "{{ lineItem.quantityInformation.maxPurchase }}",
+                    "unitPrice": "{{ lineItem.price.unitPrice }}",
+                    "productId": "{{ lineItem.id }}" 
+                }'>
+
+                {% block page_checkout_item_remove_form %}
+                    {% if lineItem.removable %}
+                        <form action="{{ path('frontend.checkout.line-item.delete', {'id': lineItem.id}) }}"
+                                method="post"
+                                data-form-csrf-handler="true">
+
+                            {% block page_checkout_item_remove_form_csrf %}
+                                {{ sw_csrf('frontend.checkout.line-item.delete') }}
+                            {% endblock %}
+
+                            {% block page_checkout_item_remove_redirect %}
+                                <input type="hidden"
+                                        name="redirectTo"
+                                        value="frontend.checkout.cart.page">
+                            {% endblock %}
+
+                            {% block page_checkout_item_remove_submit %}
+                                <button type="submit"
+                                        title="{{ "checkout.removeLineItem"|trans|striptags }}"
+                                        data-product-id="{{ lineItem.id }}"
+                                        class="btn btn-secondary cart-item-remove-button remove">
+                                    {% sw_icon 'star' %}
+                                </button>
+                            {% endblock %}
+
+                        </form>
+                    {% endif %}
+                {% endblock %}
+
+                {% block page_checkout_item_quantity_form %}
+                    {# @deprecated tag:v6.5.0 - 'isChild' will be removed with no replacement #}
+                    {% if lineItem.quantityInformation and lineItem.stackable and not isChild %}
+                        <form action="{{ path('frontend.checkout.line-item.change-quantity', {'id': lineItem.id}) }}"
+                                class="cart-item-quantity-container"
+                                method="post"
+                                data-form-auto-submit="true">
+
+                            {% block page_checkout_item_quantity_form_csrf %}
+                                {{ sw_csrf('frontend.checkout.line-item.change-quantity') }}
+                            {% endblock %}
+
+                            {% block page_checkout_item_quantity_redirect %}
+                                <input type="hidden"
+                                        name="redirectTo"
+                                        value="frontend.checkout.cart.page">
+                            {% endblock %}
+
+                            {# @var quantityInformation \Shopware\Core\Checkout\Cart\LineItem\QuantityInformation #}
+                            {% set quantityInformation = lineItem.quantityInformation %}
+                            {% if quantityInformation.maxPurchase %}
+                                {% set maxQuantity = quantityInformation.maxPurchase %}
+                            {% else %}
+                                {% set maxQuantity = config('core.cart.maxQuantity') %}
+                            {% endif %}
+
+                            {% block page_product_detail_buy_quantity %}
+                                    <div class="input-group-prepend minus">
+                                        <button class="btn btn-secondary decrease" type="button"> {% sw_icon 'minus' %} </button>
+                                    </div>
+
+                                    <input name ="quantity" type="number" class="quantity-input quantity-select"
+                                        name="lineItems[{{ lineItem.id }}][quantity]"
+                                        title="Quantity"
+                                        value="{{ lineItem.quantity }}"
+                                        max="{{ lineItem.quantityInformation.maxPurchase }}"
+                                        min="{{ lineItem.quantityInformation.minPurchase }}">
+
+                                    <div class="input-group-prepend plus">
+                                        <button class="btn btn-secondary increase" type="button"> {% sw_icon 'plus' %} </button>
+                                    </div>
+                                
+                            {% endblock %} 
+
+                        </form>
+                    {% elseif lineItem.type != "promotion" %}
+                        {% block page_checkout_item_quantity_number %}
+                            <div class="d-flex justify-content-end cart-item-quantity">
+                                {{ lineItem.quantity }}
+                            </div>
+                        {% endblock %}
+                    {% endif %}
+                {% endblock %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_checkout_item_remove %}
+{% endblock %}

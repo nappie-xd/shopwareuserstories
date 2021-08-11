@@ -1,0 +1,90 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{% block layout_header %}
+    <header class="header-main">
+        <div class="container">
+            <div class="top-bar">
+                <div class="lgnd-top-bar-phone">
+                    <a href="{{ theme_config('phone-number-field') }}" title="Telephone">
+                        <span class="lgnd-top-bar-phone-icon">
+                            {% sw_icon 'headset' %}
+                        </span>
+                        <span class="lgnd-top-bar-phone-text">
+                            {{ theme_config('phone-number-field') }}
+                        </span>
+                    </a>
+                </div>
+                <div class="lgnd-top-bar-right">
+                    <div class="lgnd-top-bar-language">
+                        {% sw_include '@Storefront/storefront/layout/header/actions/language-widget.html.twig' %}
+                    </div>
+                    <div class="lgnd-top-bar-currency">
+                        {% sw_include '@Storefront/storefront/layout/header/actions/currency-widget.html.twig' %}
+                    </div>
+                    <div class="lgnd-top-bar-service">
+                        {% sw_include '@Storefront/storefront/layout/header/actions/service-widget.html.twig' %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center header-row">
+                <div class="col-auto d-lg-none menu-toggle-col">
+                    <button class="btn nav-main-toggle-btn header-actions-btn" type="button" data-offcanvas-menu="true" aria-label="Menü">
+                        <span class="icon icon-stack">
+                            {% sw_icon 'stack' %}
+                        </span>
+                    </button>
+                </div>
+                <div class="col-auto header-logo-col">
+                    {% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
+                </div>
+                <div class="col-12 d-none d-md-block header-search-col">
+                    {% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
+                </div>
+                <div class="col-auto header-actions-col">
+                    <div class="row no-gutters">
+                    {% block layout_header_search_toggle %}
+                        <div class="col-auto d-md-none">
+                            <div class="search-toggle">
+                                <button class="btn header-actions-btn search-toggle-btn js-search-toggle-btn collapsed"
+                                        type="button"
+                                        data-toggle="collapse"
+                                        data-target="#searchCollapse"
+                                        aria-expanded="false"
+                                        aria-controls="searchCollapse"
+                                        aria-label="{{ "header.searchButton"|trans|striptags }}">
+                                    {% sw_icon 'search' %}
+                                </button>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    {% block layout_header_actions_account %}
+                        <div class="col-auto">
+                            <div class="account-menu">
+                                {% sw_include '@Storefront/storefront/layout/header/actions/account-widget.html.twig' %}
+                            </div>
+                        </div>
+                    {% endblock %}
+
+                    {% block layout_header_actions_cart %}
+                        <div class="col-auto">
+                            <div class="header-cart" data-offcanvas-cart="true">
+                                <a class="btn header-cart-btn header-actions-btn" href="/checkout/cart" date-cart-widget="true" title="Warenkorb" aria-label="Warenkorb">
+                                    {% sw_include '@Storefront/storefront/layout/header/actions/cart-widget.html.twig' %}
+                                </a>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row header-mobile-search-row">
+                <div class="col-12 d-md-none header-search-col-mobile">
+                    {% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
+                </div>
+            </div>
+
+        </div>
+    </header>
+{% endblock %}

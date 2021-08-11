@@ -1,0 +1,39 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+
+{% block page_product_detail_tabs_navigation_review %}
+    {{ parent() }}
+    {% if page.product.customFields.ingredients_text %}
+        {% block page_product_detail_tabs_navigation_ingredients %}
+            <li class="nav-item">
+                <a class="nav-link 
+                    {# {% if (ratingSuccess != 1) and (ratingSuccess != -1) %}active{% endif %}  #}
+                    product-detail-tab-navigation-link"
+                    id="ingredients-tab"
+                    data-toggle="tab"
+                    data-offcanvas-tabs="true"
+                    href="#ingredients-tab-pane"
+                    role="tab"
+                    aria-controls="ingredients-tab-pane"
+                    aria-selected="false">
+                    Ingredients
+                </a>
+            </li>
+        {% endblock %}
+    {% endif %}
+{% endblock %}
+
+{% block page_product_detail_tabs_content_review %}
+    {{ parent() }}
+    {# {% if config('core.listing.showReview') %} #}
+    {% if page.product.customFields.ingredients_text %}
+        {% block page_product_detail_tabs_content_ingredients %}
+        <div class="tab-pane fade show"
+                id="ingredients-tab-pane"
+                role="tabpanel"
+                aria-labelledby="ingredients-tab">
+            {# {% sw_include '@Storefront/storefront/page/product-detail/review/review.html.twig' with {'reviews': page.reviews} %} #}
+        </div>
+        {{ page.product.customFields.ingredients_text|raw}}
+        {% endblock %}
+    {% endif %}
+{% endblock %}
